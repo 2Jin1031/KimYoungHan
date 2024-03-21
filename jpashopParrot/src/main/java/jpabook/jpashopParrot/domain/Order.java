@@ -21,6 +21,7 @@ public class Order {
     private Long id;
 
     @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "member_id")
     private Member member;
 
     @OneToMany(mappedBy = "order")
