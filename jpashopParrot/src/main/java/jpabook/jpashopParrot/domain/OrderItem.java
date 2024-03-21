@@ -5,6 +5,8 @@ import jpabook.jpashopParrot.domain.item.Item;
 import lombok.Getter;
 import lombok.Setter;
 
+import static jakarta.persistence.FetchType.*;
+
 @Entity
 @Getter @Setter
 public class OrderItem {
@@ -13,10 +15,10 @@ public class OrderItem {
     @Column(name = "order_item_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     private Item item;
 
-    @ManyToOne
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "order_id")
     private Order order;
 
