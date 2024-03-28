@@ -83,15 +83,6 @@ public class OrderServiceTest {
         Assertions.assertEquals(10, book.getStockQuantity(), "주문이 취소된 상품은 그만큼 재고가 증가해야 한다.");
     }
 
-    @Test
-    public void 재고수량초과() throws Exception {
-        //given
-
-        //when
-
-        //then
-    }
-
     private Book createBook(String name, int price, int stockQuantity) {
         Book book = new Book();
         book.setName(name);
