@@ -13,7 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -29,8 +28,8 @@ public class OrderController {
 
         List<Member> members = memberService.findMembers();
         List<Item> items = itemService.findItems();
-        
-        model.addAttribute( "members", members);
+
+        model.addAttribute("members", members);
         model.addAttribute("items", items);
 
         return "order/orderForm";
