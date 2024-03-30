@@ -16,16 +16,14 @@ public class JpaMain {
 
         try {
             // 비영속
-            Member member = new Member();
-            member.setId(100L);
-            member.setName("HelloJPA");
+            Member findMember = em.find(Member.class, 150L);
+            System.out.println("findMember = " + findMember);
+            findMember.setName("ZZZZZZZ");
 
-            // 영속
-            System.out.println("=== BEFORE ===");
-            em.persist(member);
-            System.out.println("=== AFTER ===");
+            System.out.println("=========");
             tx.commit();
         } catch (Exception e) {
+            System.out.println("in catch");
             tx.rollback();
         } finally {
             em.close();
