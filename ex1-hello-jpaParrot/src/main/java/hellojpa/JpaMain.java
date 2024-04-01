@@ -25,6 +25,17 @@ public class JpaMain {
             member.setTeam(team);
             em.persist(member);
 
+            em.flush();
+            em.clear();
+
+            Member findMember = em.find(Member.class, member.getId());
+
+            List<Member> members = findMember.getTeam().getMembers();
+
+            for (Member m : members) {
+                System.out.println("m = " + m.getName());
+            }
+
             tx.commit();
         } catch (Exception e) {
             System.out.println("in catch");
