@@ -1,5 +1,7 @@
 package hellojpa.jpabook.jpashop;
 
+import hellojpa.jpabook.jpashop.domain.Order;
+import hellojpa.jpabook.jpashop.domain.OrderItem;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -16,7 +18,14 @@ public class JpaMain {
         tx.begin();
 
         try {
+            Order order = new Order();
+            em.persist(order);
+
+            OrderItem orderItem = new OrderItem();
+            orderItem.setOrder(order);
+            em.persist(orderItem);
             tx.commit();
+
         } catch (Exception e) {
             System.out.println("in catch");
             tx.rollback();
