@@ -19,8 +19,8 @@ public class Member {
     private String street;
     private String zipcode;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderItem> orderItems = new ArrayList<>();
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<>();
 
     private LocalDateTime orderDate;
 
