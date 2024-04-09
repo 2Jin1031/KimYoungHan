@@ -1,9 +1,9 @@
 package hellojpa.jpabook.jpashop.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Item {
@@ -20,6 +20,9 @@ public class Item {
     public Long getId() {
         return id;
     }
+
+    @ManyToMany(mappedBy = "items")
+    private List<Category> categories = new ArrayList<>();
 
     public void setId(Long id) {
         this.id = id;
